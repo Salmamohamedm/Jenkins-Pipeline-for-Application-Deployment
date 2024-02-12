@@ -54,3 +54,4 @@ environment {
     }
 ```
   
+# Stages of a Jenkins pipeline script
