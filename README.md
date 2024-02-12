@@ -30,7 +30,6 @@ Before running this pipeline, ensure you have the following prerequisites:
 - DOCKER_IMAGE: Name of the Docker image for your application.
 - imageTagApp: A unique tag for the Docker image, including the build number.
 - imageNameapp: The full name of the Docker image, including the Docker registry and image tag.
-- OPENSHIFT_PROJECT: The OpenShift project where the application will be deployed.
 - GITHUB_REPO: The GitHub repository containing the application source code.
 - OPENSHIFT_SERVER: The URL of the OpenShift server.
 - APP_SERVICE_NAME: The name of the OpenShift service associated with the application.
@@ -45,7 +44,7 @@ environment {
         DOCKER_IMAGE = "spring-boot"
         imageTagApp = "build-${BUILD_NUMBER}-app"
         imageNameapp = "${DOCKER_REGISTRY}:${imageTagApp}"
-        OPENSHIFT_PROJECT = 'salmamakram'
+        OPENSHIFT_NAMESPACE = 'salmamakram'
         GITHUB_REPO = "Salmamohamedm/MultiCloudDevOpsProject"
         OPENSHIFT_SERVER = 'https://api.ocpuat.devopsconsulting.org:6443'
         APP_SERVICE_NAME = 'springboot1'
