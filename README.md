@@ -9,7 +9,7 @@ Before running this pipeline, ensure you have the following prerequisites:
 - OpenShift Cluster access with credentials configured in Jenkins
 - Maven or Gradle for building the application
 - Docker installed on the Jenkins server
-  # Pipeline Steps
-  1. Build: Builds the application using Maven or Gradle.
-  2. Dockerize: Creates a Docker image for the application.
+# Pipeline Steps
+1. Build: Builds the application using Maven or Gradle.
+2. Dockerize: Creates a Docker image for the application.
       
