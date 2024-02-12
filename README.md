@@ -123,3 +123,6 @@ environment {
 ```
 ![Screenshot (453)](https://github.com/Salmamohamedm/Jenkins-Pipeline-for-Application-Deployment/assets/109488469/eedcbbc5-7570-4eb5-b56a-df8b4b5ce1b9)
 
+
+# Contributing
+- Feel free to contribute to this Jenkins pipeline by suggesting improvements or submitting pull requests.
