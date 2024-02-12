@@ -22,3 +22,10 @@ Before running this pipeline, ensure you have the following prerequisites:
 2. Proceed to copy the provided pipeline script (Jenkinsfile) into the pipeline configuration.
 3. Configure the required environment variables, including credentials, Docker image name, application name, and OpenShift namespace.
 4. Initiate the pipeline either manually or by setting up automatic triggering based on changes in your code repository.
+
+# Environment Variables
+- DOCKER_HUB_CREDENTIALS: Jenkins credentials ID for Docker Hub authentication.
+- OPENSHIFT_CREDENTIALS: Jenkins credentials ID for OpenShift Cluster authentication.
+- DOCKER_IMAGE: Name of the Docker image for your application.
+- APPLICATION_NAME: Name of your application.
+- 
