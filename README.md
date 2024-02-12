@@ -12,4 +12,7 @@ Before running this pipeline, ensure you have the following prerequisites:
 # Pipeline Steps
 1. Build: Builds the application using Maven or Gradle.
 2. Dockerize: Creates a Docker image for the application.
+3. Push to Docker Hub: Pushes the Docker image to a Docker Hub repository.
+4. Pull from Docker Hub: Pulls the Docker image from Docker Hub.
+5. Deploy to OpenShift: Deploys the application on an OpenShift Cluster within your namespace.
       
