@@ -16,3 +16,9 @@ Before running this pipeline, ensure you have the following prerequisites:
 4. Pull from Docker Hub: Pulls the Docker image from Docker Hub.
 5. Deploy to OpenShift: Deploys the application on an OpenShift Cluster within your namespace.
       
+# Usage
+- To utilize this Jenkins pipeline, follow these instructions:
+1. Begin by creating a new Jenkins pipeline job.
+2. Proceed to copy the provided pipeline script (Jenkinsfile) into the pipeline configuration.
+3. Configure the required environment variables, including credentials, Docker image name, application name, and OpenShift namespace.
+4. Initiate the pipeline either manually or by setting up automatic triggering based on changes in your code repository.
