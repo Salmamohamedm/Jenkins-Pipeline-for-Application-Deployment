@@ -28,4 +28,4 @@ Before running this pipeline, ensure you have the following prerequisites:
 - OPENSHIFT_CREDENTIALS: Jenkins credentials ID for OpenShift Cluster authentication.
 - DOCKER_IMAGE: Name of the Docker image for your application.
 - APPLICATION_NAME: Name of your application.
-- 
+- OPENSHIFT_NAMESPACE: Namespace on the OpenShift Cluster where the application will be deployed.
