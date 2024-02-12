@@ -65,4 +65,59 @@ environment {
       - Authenticates with OpenShift using the provided token.
       - Sets the OpenShift project.
       - Deploys the Docker image to OpenShift.
-      - Exposes the service using oc create service and oc expose service commands.             
+      - Exposes the service using oc create service and oc expose service commands.
+```
+    stages {
+        
+        
+        stage('Checkout') {
+            steps {
+                git url: "https://github.com/${GITHUB_REPO}.git", branch: 'main'
+            }
+        }
+        
+        
+        stage('Build Docker image and push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_REGISTRY_USERNAME', passwordVariable: 'DOCKER_REGISTRY_PASSWORD')]) {
+                    script {
+                        try {
+                            sh "echo \${DOCKER_REGISTRY_PASSWORD} | docker login -u \${DOCKER_REGISTRY_USERNAME} --password-stdin"
+                            sh "docker build -t ${imageNameapp} ."
+                            sh "docker tag ${imageNameapp} ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${imageTagApp}"
+                            sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${imageTagApp}"
+                        } finally {
+                            // Clean up even if the build or push fails
+                            sh "docker rmi -f ${imageNameapp}"
+                        }
+                    }
+                }
+            }
+        }
+
+
+        
+
+        stage('Deploy to OpenShift') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'openshift-token', variable: 'OPENSHIFT_SECRET')]) {
+                    sh "oc login --token=\${OPENSHIFT_SECRET} --server=\${OPENSHIFT_SERVER} --insecure-skip-tls-verify"
+                    }
+                    sh "oc project \${OPENSHIFT_PROJECT}"
+                    //sh "oc delete dc,svc,deploy,ingress,route \${DOCKER_IMAGE} || true"
+                    sh "oc new-app ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${imageTagApp} --token=\${OPENSHIFT_SECRET}"
+                    
+                    // Expose the service 
+                    sh "oc create service clusterip ${APP_SERVICE_NAME} --tcp=8080:8080 "
+                    sh " oc expose service/${APP_SERVICE_NAME}"
+                    
+                    //sh "oc create route edge --service \${APP_SERVICE_NAME} --port \${APP_PORT} --hostname springboot.apps.ocpuat.devopsconsulting.org --insecure-policy Redirect"
+
+                }
+            }
+        }
+    }
+}
+
+```
