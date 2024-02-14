@@ -37,3 +37,20 @@ By following these steps, you can efficiently automate your application deployme
 - APP_SERVICE_NAME: The name of the OpenShift service associated with the application.
 - APP_PORT: The port on which the application will be accessible.
 - APP_HOST_NAME: The hostname used to access the application.
+
+```
+environment {
+        
+        DOCKER_REGISTRY = "salmamakram"
+        DOCKER_IMAGE = "spring-boot"
+        imageTagApp = "build-${BUILD_NUMBER}-app"
+        imageNameapp = "${DOCKER_REGISTRY}:${imageTagApp}"
+        OPENSHIFT_PROJECT = 'salmamakram'
+        GITHUB_REPO = "Salmamohamedm/MultiCloudDevOpsProject"
+        OPENSHIFT_SERVER = 'https://api.ocpuat.devopsconsulting.org:6443'
+        APP_SERVICE_NAME = 'springboot1'
+        APP_PORT = '8080'
+        APP_HOST_NAME = 'springboot1.apps.ocpuat.devopsconsulting.org'
+        
+    }
+```
