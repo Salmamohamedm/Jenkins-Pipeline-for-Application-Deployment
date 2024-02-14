@@ -56,3 +56,25 @@ environment {
 ```
 # Jenkins pipeline script 
 This Jenkins pipeline script consists of three stages:
+1. Checkout:
+     - This stage checks out the source code of the application from the specified GitHub repository.
+     - It uses the git step to clone the repository URL and checkout the main branch.
+2. Build Docker image and push to Docker Hub:
+     - This stage builds the Docker image for the application and pushes it to Docker Hub.
+     - It uses the withCredentials block to securely access Docker Hub credentials stored in Jenkins.
+       
+- Inside the script block:
+  
+     - It logs in to Docker Hub using the provided credentials.
+     - Builds the Docker image using the docker build command with the specified image name.
+     -  Tags the built image with the full image name including the Docker registry, image name, and tag.
+     - Pushes the tagged image to Docker Hub repository.
+     - Finally, it cleans up by removing the temporary Docker image built during the process, even if the build or push fails.
+3. Deploy to OpenShift:
+     - This stage deploys the application to an OpenShift Cluster.
+- Inside the script block:
+     - It uses OpenShift credentials stored in Jenkins to authenticate with the OpenShift Cluster.
+     - Sets the project to the specified OpenShift project.
+     - Deploys the Docker image to OpenShift using the oc new-app command.
+     - Exposes the service using oc create service and oc expose service commands.
+       
