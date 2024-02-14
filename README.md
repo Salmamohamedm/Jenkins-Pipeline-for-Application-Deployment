@@ -22,4 +22,6 @@ To utilize this Jenkins pipeline, follow these instructions:
 3. Configure the required environment variables, including credentials, Docker image name, application name, and OpenShift namespace.
 4. Initiate the pipeline either manually or by setting up automatic triggering based on changes in your code repository.
 
+
+> [!NOTE]
 By following these steps, you can efficiently automate your application deployment using Jenkins.
