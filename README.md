@@ -134,6 +134,10 @@ This Jenkins pipeline script consists of three stages:
 
 
 ```
+![Screenshot (453)](https://github.com/Salmamohamedm/Jenkins-Pipeline-for-Application-Deployment/assets/109488469/19fced9f-26a4-4e78-86d0-d472fde1e830)
+
+
+
 > [!TIP]
 > You can further customize and extend these stages as per your project requirements, such as adding additional steps for testing, monitoring, or integrating with other systems.
        
