@@ -25,3 +25,15 @@ To utilize this Jenkins pipeline, follow these instructions:
 
 > [!NOTE]
 By following these steps, you can efficiently automate your application deployment using Jenkins.
+
+# Environment Variables
+- DOCKER_REGISTRY: The Docker registry where the Docker images will be pushed.
+- DOCKER_IMAGE: The name of the Docker image.
+- imageTagApp: A unique tag for the Docker image, including the build number.
+- imageNameapp: The full name of the Docker image, including the Docker registry and image tag.
+- OPENSHIFT_NAMESPACE: The OpenShift project where the application will be deployed.
+- GITHUB_REPO: The GitHub repository containing the application source code.
+- OPENSHIFT_SERVER: The URL of the OpenShift server.
+- APP_SERVICE_NAME: The name of the OpenShift service associated with the application.
+- APP_PORT: The port on which the application will be accessible.
+- APP_HOST_NAME: The hostname used to access the application.
