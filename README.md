@@ -141,3 +141,5 @@ This Jenkins pipeline script consists of three stages:
 > [!TIP]
 > You can further customize and extend these stages as per your project requirements, such as adding additional steps for testing, monitoring, or integrating with other systems.
        
+# Contributing 
+Feel free to contribute to this Jenkins pipeline by suggesting improvements or submitting pull requests.
